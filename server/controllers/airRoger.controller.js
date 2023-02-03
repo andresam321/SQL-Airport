@@ -13,11 +13,11 @@ getSql:(req,res)=>{
 },
 
 createSql:(req,res)=>{
-    const verifyJwt= jwt.verify(req.cookies.usertoken,process.env.SECRET_KEY,{complete:true})  
+    // const verifyJwt= jwt.verify(req.cookies.usertoken,process.env.SECRET_KEY,{complete:true})  
     sql.create(req.body)
-    .then((verifyJwt)=>{res.status(201).json(verifyJwt)})
-    .catch((err)=>{console.log(verifyJwt, err)
-    res.status(400).json({message:"Something went wrong in creating all SQL inputs"})
+    .then((create)=>{res.status(201).json(create)})
+    .catch((err)=>{console.log( err)
+    res.status(400).json(err)
  })
 },
 getSqlById:(req,res)=>{

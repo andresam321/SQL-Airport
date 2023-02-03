@@ -73,6 +73,7 @@ import CreateExecutiveRamp from './components/CreateExecutiveRamp';
 
 import LoginRegister from "./views/LoginRegister"
 import { useState } from 'react';
+import OwnersInfo from './components/OwnersInfo';
 
 
 
@@ -92,6 +93,7 @@ function App() {
       <Route path="/" element={<LoginRegister/>}/>
       <Route path="/accountList" element={<Main/>}/>
       <Route path="/accountList/towerLocations" element={<TowerLocations/>}/>
+      <Route path="/ownersInfo" element={<OwnersInfo/>}/>
 
       <Route path="/accountList/towerLocations/airRoger" element={<AirRoger/>}/>
       <Route path="/accountList/towerLocations/thirteenThroughFifteenHangars" element={<ThirteenThroughFifteenHangars/>}/>

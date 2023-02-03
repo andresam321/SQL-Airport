@@ -16,7 +16,10 @@ const Register= () =>{
     const [email, setEmail]= useState('');
     const [password, setPassword]= useState('');
     const [confirmPassword, setConfirmPassword]= useState('');
+    const [admin, setAdmin] = useState("")
     const [errors,setErrors] = useState({})
+    const [roles,setRoles] = useState('')
+    const [basic, setBasic] = useState("")
     // const [age, setAge]= useState('');
     const navigate = useNavigate();
 
@@ -34,6 +37,8 @@ const Register= () =>{
             setEmail('');
             setPassword('');
             setConfirmPassword('');
+            setAdmin("")
+            setBasic("")
             // setAge('');
             setErrors({})
         })
@@ -42,6 +47,15 @@ const Register= () =>{
             setErrors(err)
         })
     }
+
+    function passwordFunc() {
+        var x = document.getElementById("myInput");
+        if (x.password === "password") {
+          x.password = "text";
+        } else {
+          x.password = "password";
+        }
+      }
     // const handleChange = (e) =>{
     //     setUser({
     //         ...user,
@@ -88,13 +102,29 @@ const Register= () =>{
                         />
                     </div>
                     <div className="input">
+                        <label>Admin: </label>
+                        <input onChange={(e)=>setAdmin(e.target.value)}
+                        value={admin}
+                        name='admin'
+                        type='text'
+                        />
+
+                    </div>
+                 
+                    <div className="input">
                         <label>Password: </label>
                         <input onChange={(e)=>setPassword(e.target.value)}
                         value={password}
                         name='password'
                         type='password'
                         />
+
                     </div>
+                    {/* <div>
+                        <label>Show Passowrd</label>
+                        <input type="checkbox" onclick={passwordFunc}/>
+  
+                    </div> */}
                     <div className="input">
                         <label>Confirm Password: </label>
                         <input onChange={(e)=>setConfirmPassword(e.target.value)}

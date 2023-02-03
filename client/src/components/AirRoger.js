@@ -95,7 +95,7 @@ useEffect(()=>{axios.get("http://localhost:8000/api/currentUser", {withCredentia
     </div>
     
     <div>
-    { user ? (
+    {/* { user ? ( */}
       <table className="table">
         <thead>
           <tr>
@@ -135,13 +135,13 @@ useEffect(()=>{axios.get("http://localhost:8000/api/currentUser", {withCredentia
         }
         </tbody>
     </table>
-      ):(
+      {/* ):(
         <div>
               <NavLink to="/">Login</NavLink>
                     <span> | </span>
               <NavLink to="/">Register</NavLink>
         </div> 
-      )}
+      )} */}
     </div>
 
 

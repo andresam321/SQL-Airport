@@ -1,6 +1,7 @@
 const User = require("../models/user.model")
 const jwt = require("jsonwebtoken");
 const bcrypt = require('bcrypt');
+require('dotenv').config();
 // const { secret } = require("../config/jwt.config");
 
 
@@ -19,16 +20,45 @@ User.find({})
 
 
 
-register: (req, res) => {
-    User.create(req.body)
-    .then(user => {
-    const userToken = jwt.sign({id: user._id}, process.env.SECRET_KEY);
-        res.cookie("usertoken", userToken, {httpOnly: true})
-        res.json({ msg: "success! on registering", user: user })
-        })
-        .catch(err =>res.json(err))
+// register: (req, res) => {
+//     User.create(req.body)
+//     .then(user => {
+//     const userToken = jwt.sign({id: user._id}, process.env.SECRET_KEY);
+//         res.cookie("usertoken", userToken, {httpOnly: true})
+//         res.json({ msg: "success! on registering", user: user })
+//         })
+//         .catch(err =>res.json(err))
           
-      },
+//       },
+
+registerUser: async (req,res)=>{
+    const {body} = req
+    try{
+        const queriedUser= await User.findOne({email: body.email})
+            if (queriedUser){
+                res.status(400).json({error:"Email aready in use"})
+                return;
+            }
+        
+    } catch(error){
+        res.status(400).json(err);
+    }
+    const newUser = new User(body)
+    try {
+        const newUserObj = await newUser.save()
+        res.json(newUserObj);
+        // console.log(newUserObj)
+
+    } catch (error) {
+        console.log("error in save")
+        res.status(400).json(error)
+        return;
+    }
+    const result = await User.create(body)
+    console.log("result", result);
+    // res.json({msg:"here"})
+    // return;
+},
 
 // register: (req, res)=>{
 //     const newUser = new User(req.body);
@@ -112,6 +142,8 @@ logIn: (req, res)=> {
                         res.cookie('usertoken', 
                         jwt.sign({
                             _id: user._id,
+                            role: user.Role,
+                            // role: user.admin
                             // username: user.username,
                             // email: user.email,
                         },process.env.SECRET_KEY),
@@ -122,7 +154,8 @@ logIn: (req, res)=> {
                         .json({
                             message: 'Successful Log in',
                             userLoggedIn: {
-                                firstName: `${user.firstName}${user.lastName}`
+                                fullName: `${user.firstName}, ${user.lastName}`,
+                                role: `${user.Role}`
                             }
                         })
 

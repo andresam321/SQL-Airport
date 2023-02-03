@@ -56,7 +56,7 @@ const submitHandler = (e) =>{
     //  console.log("err.response", err.response)
     //  console.log("err.response.data", err.response.data)
      console.log("err.response.data.errors", err.response.data.errors)
-    //  console.log("err.res.errors", err.res.data.errors)
+    //  console.log("err.res.data.errors", err.res.data.errors)
 
      setError(err.response.data.errors)
     })

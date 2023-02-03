@@ -111,7 +111,7 @@ const submitHandler = (e) =>{
     })
     .then((res)=>{
         console.log(res)
-    // navigate(`/towerLocations/airRogerPlane/${id}`)
+    navigate(`/airRogerPlane/${id}`)
     })
     .catch(err=> setErrors(err))
     
@@ -149,7 +149,7 @@ const handleLogout = () =>{
 
   return (
     <div>
-        { user ? (
+        {/* { user ? ( */}
         <table className='table'>
             <thead>
                 <tr>
@@ -178,13 +178,13 @@ const handleLogout = () =>{
                     </tr>
                 </tbody>
         </table>
-        ):(
+        {/* ):(
         <div>
           <NavLink to="/">Login</NavLink>
                 <span> | </span>
           <NavLink to="/">Register</NavLink>
         </div>       
-    )}
+    )} */}
 
 
     {user && owners.owners ? (

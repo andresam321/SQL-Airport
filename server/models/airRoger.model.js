@@ -10,7 +10,7 @@ const AirRoger =  new mongoose.Schema(
         // ],
         area:{
             type:String,
-            // required:[true,"An area is required!"],
+            required:[true,"An area is required!"],
             enum:[
                 "Air Roger",
             ]
@@ -19,7 +19,7 @@ const AirRoger =  new mongoose.Schema(
   
             locationOfPlane:{
                 type:String,
-                // required:[true, "A location is required"]
+                required:[true, "A location is required"]
     
             },
 
@@ -35,7 +35,7 @@ const AirRoger =  new mongoose.Schema(
        
             fuelType:{
                 type:String,
-                // required:[true,"Must choose a type of fuel, Options:Avgas 100LL","Jet-A","94 unleaded "],
+                required:[true,"Must choose a type of fuel, Options:Avgas 100LL","Jet-A","94 unleaded "],
                 enum:["Avgas 100LL","Jet-A","94 unleaded",]
     
             },

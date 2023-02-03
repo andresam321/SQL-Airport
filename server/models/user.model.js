@@ -3,10 +3,10 @@ const bcrypt = require('bcrypt')
 
 
 
-
 const UserSchema = new mongoose.Schema({
     firstName: {
       type: String,
+      // enum:[process.env.ADMIN_ROLE],
       required: [true, "First name is required"]
     },
     lastName: {
@@ -22,11 +22,38 @@ const UserSchema = new mongoose.Schema({
       
       
     },
+    // admin:{
+    //   type:String,
+    //   default: "Basic Entry",
+    //   enum:[process.env.ADMIN_ROLE],
+    // },
+    // basic:{
+    //   type:Boolean,
+    //   // default: true,
+    // },
+    // supervisor:{
+    //   type:Boolean,
+    //   default: false,
+    // },
+  Role: {
+    type:String,
+    default:"Basic",
+    enum:["Admin", "Basic"],
+
+  //   // required:[true,"a valid role is selected"]
+    
+    
+  },
+      
     password: {
       type: String,
       required: [true, "Password is required"],
       minlength: [4, "Password must be 8 characters or longer"]
     },
+    // roles:[{
+    //   type:mongoose.Schema.Types.ObjectId,
+      
+    // }]
  
   }, {timestamps: true});
 

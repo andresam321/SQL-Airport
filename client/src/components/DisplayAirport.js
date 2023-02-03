@@ -9,6 +9,9 @@ import { useNavigate } from 'react-router-dom'
 const DisplayAirport = ({isLoggedIn, setIsLoggedIn}) => {
 
 const [user, setUser] = useState()
+const [email, setEmail] = useState("")
+const [password, setPassword] = useState("")
+const [ident, setident] = useState()
 const navigate = useNavigate();
 
 
@@ -42,6 +45,21 @@ const navigate = useNavigate();
     
   
   }, [isLoggedIn])
+
+//   useEffect(()=>{axios.get(`https://aeroapi.flightaware.com/aeroapi/aircraft/N123GS/owner`,{
+//     headers: {Accept: "Accept: application/json; charset=UTF-8"},
+//     headers: {Accept : "x-apikey:  co5GxcMIhagiyA8iJV4L120pyv1ig9SX"}
+//   },
+//   {withCredentials:true})
+//   .then((res)=>{
+//     console.log(res)
+    
+//   })
+//   .catch((err)=>{err})
+//   console.log(err)
+  
+
+// })
 
 
   return (
@@ -82,7 +100,12 @@ const navigate = useNavigate();
                 
                 
             </div> 
-        )}    
+        )}
+        <p>Owners Info</p>
+            <div>
+                <NavLink to="/ownersInfo">Owners Info</NavLink>
+            </div> 
+            
             
   </div>
   )

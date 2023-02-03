@@ -1,12 +1,13 @@
 const sqlController = require("../controllers/airRoger.controller")
-const { authenticate } = require('../config/jwt.config');
+const Role = require("../models/user.model")
+const { authenticate, authRole } = require('../config/jwt.config');
 
 module.exports = (app) =>{
-    app.get("/api/airRogers", sqlController.getSql)
+    app.get("/api/airRogers",authenticate,authRole(Role), sqlController.getSql)
     // app.get("/api/airRogers/owners", sqlController.getOwnerByPlaneId)
-    app.post("/api/airRoger", sqlController.createSql)
-    app.get("/api/airRoger/:id",sqlController.getSqlById)
-    app.put("/api/airRoger/:id",sqlController.updateSql)
+    app.post("/api/airRoger",authenticate, sqlController.createSql)
+    app.get("/api/airRoger/:id",authenticate, sqlController.getSqlById)
+    app.put("/api/airRoger/:id",authenticate, sqlController.updateSql)
     app.delete("/api/airRoger/:id", sqlController.deleteSql)
     app.delete("/api/airRoger/:id/:owners", sqlController.deleteOwner)
 }

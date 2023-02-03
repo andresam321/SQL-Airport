@@ -34,7 +34,9 @@ require("./routes/tShadeRamp.routes")(app);
 require("./routes/eigthNineHangars.routes")(app);
 require("./routes/executiveRamp.routes")(app);
 require("./routes/user.routes")(app);
+require("./routes/ownersInfo.routes")(app);
 require('dotenv').config();
+// require('dotenv').controllers(
 
 
 
