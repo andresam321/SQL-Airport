@@ -7,11 +7,8 @@ logs
 
 node_modules
 bower_components
-<<<<<<< HEAD
 .env
-=======
 # .env
->>>>>>> 3cdb0ed (ksql02)
 
 *.sublime*
 
