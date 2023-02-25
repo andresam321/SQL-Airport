@@ -101,7 +101,7 @@ const Register= () =>{
                         type='text'
                         />
                     </div>
-                    <div className="input">
+                    {/* <div className="input">
                         <label>Admin: </label>
                         <input onChange={(e)=>setAdmin(e.target.value)}
                         value={admin}
@@ -109,7 +109,7 @@ const Register= () =>{
                         type='text'
                         />
 
-                    </div>
+                    </div> */}
                  
                     <div className="input">
                         <label>Password: </label>

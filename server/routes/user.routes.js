@@ -7,7 +7,7 @@ module.exports = (app) => {
   app.post("/api/user/logout", Users.logout);
   app.get("/api/currentUser", Users.getLoggedInUser)
   app.get("/api/allUsers", Users.getUsers)
-  // this route now has to be authenticated
+  // this route now has to be authenticat
 //   app.get("/api/users", authenticate, Users.getAll);
 }
 

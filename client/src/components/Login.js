@@ -16,19 +16,6 @@ const [error, setErrors] = useState('')
 const navigate = useNavigate();
 
 
-// useEffect(()=>{axios.post("http://localhost:8000/api/trails/login")
-//     .then((res)=>{
-//         console.log(res.data)
-//         setEmail(res.data)
-//         setPassword(res.data)
-//     })
-//     .catch((err)=>{console.log(err)
-//     })
-
-
-
-// }, [])
-
 const submitForm = (e)=>{
     e.preventDefault();
     axios.post(`http://localhost:8000/api/user/login`,{email,password},{withCredentials:true})
@@ -38,7 +25,7 @@ const submitForm = (e)=>{
         navigate('/accountList');
        // setEmail('');
         // setPassword('');
-        // setConfirmPassword('');
+        // setConfirmPassword('')
        
     }
     )

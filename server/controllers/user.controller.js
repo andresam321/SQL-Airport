@@ -142,7 +142,7 @@ logIn: (req, res)=> {
                         res.cookie('usertoken', 
                         jwt.sign({
                             _id: user._id,
-                            role: user.Role,
+                            
                             // role: user.admin
                             // username: user.username,
                             // email: user.email,
