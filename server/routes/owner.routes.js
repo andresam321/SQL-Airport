@@ -6,5 +6,7 @@ module.exports =(app) =>{
     app.get("/api/owners", owner.getAllOwners)
     app.get("/api/owner/:id", owner.getOneOwner)
     // app.get("/api/ownersById", owner.getOwnersByPlaneId)
-    app.delete("/api/owner/:airRoger_id/:owner_id", owner.deleteOwner)
+    app.delete("/api/owner/:airRoger_id/:owner_id", owner.deleteOwner1)
+   
+    app.delete("/api/owners/:id/:owners", owner.deletePLEASE)
 }

@@ -36,6 +36,10 @@ const OwnersInfo = new mongoose.Schema(
         notes:{
             type:String,
 
+        },
+        airRoger: {
+            type:mongoose.Schema.Types.ObjectId,
+            ref: "airRoger"
         }
     }, {timestamps:true}
 )

@@ -32,7 +32,7 @@ const CreateTshadeRamp = ({isLoggedIn, setIsLoggedIn}) => {
             fuelOrder,
             positivePrist,
             checkName
-        })
+        },{withCredentials:true})
         .then((res)=>{
             console.log(res)
         // setLocationOfPlane('')
@@ -80,8 +80,6 @@ const CreateTshadeRamp = ({isLoggedIn, setIsLoggedIn}) => {
             <select value ={area} className="form-control" name="area" onChange={(e)=> setArea(e.target.value)}>
                 <option>Area</option>
                 <option value="T-Shades">T-Shades</option>
-                
-
             </select>
             {
               error.area?

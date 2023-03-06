@@ -1,4 +1,5 @@
 const OwnersInfo = require("../models/ownersInfo.model")
+const sql = require("../models/airRoger.model")
 
 
 module.exports = {
@@ -15,5 +16,6 @@ module.exports = {
         .catch((err)=>{console.log("Error", err)
         res.status(400).json(err)
         })
-    }
+    },
+    
 }

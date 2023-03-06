@@ -6,14 +6,14 @@ getSql:(req,res)=>{
     sql.find({})
     .then((tshades)=>{res.json(tshades)})
     .catch((err)=>{console.log("Error in finding airport inputs", err)
-    res.status(400).json({message:"Something went wrong in finding airports inputs",err})
+    res.status(400).json()
  })
 },
 createSql:(req,res)=>{
     sql.create(req.body)
     .then((createTshades)=>{res.status(201).json(createTshades)})
-    .catch((err)=>{console.log("error in creating sql inputs", err)
-    res.status(400).json({message:"Something went wrong in creating all SQL inputs"})
+    .catch((err)=>{console.log(err)
+    res.status(400).json(err)
  })
 },
 getSqlById:(req,res)=>{

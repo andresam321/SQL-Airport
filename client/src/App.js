@@ -1,6 +1,7 @@
 import './App.css';
 import Main from './views/Main';
 import {BrowserRouter, Routes, Route} from "react-router-dom"
+import { BrowserRouter as Router, Switch,  } from "react-router-dom";
 import TowerLocations from './components/TowerLocations';
 import AirRoger from './components/AirRoger';
 import EditAirRoger from './components/EditAirRoger';
@@ -74,6 +75,7 @@ import CreateExecutiveRamp from './components/CreateExecutiveRamp';
 import LoginRegister from "./views/LoginRegister"
 import { useState } from 'react';
 import OwnersInfo from './components/OwnersInfo';
+import Root from './components/route'
 
 
 
@@ -90,6 +92,7 @@ function App() {
 <BrowserRouter>
     <div className="App">
     <Routes>
+      
       <Route path="/" element={<LoginRegister/>}/>
       <Route path="/accountList" element={<Main/>}/>
       <Route path="/accountList/towerLocations" element={<TowerLocations/>}/>

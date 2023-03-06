@@ -31,8 +31,7 @@ const navigate = useNavigate()
 const deleteOwner = ()=>{
   axios.delete(`http://localhost:8000/api/airRoger/${id}/${id}`)
   .then((res)=>{
-    console.log(res)
-    console.log("success deleting input", res)
+    setOwners(res.data)
     // const filteredInputs = owners.owners.filter((input)=>{
     //   return input.id !== id;
     //     })
@@ -87,7 +86,7 @@ const deleteButton=()=>{
 
 
 
-useEffect(()=>{axios.get(`http://localhost:8000/api/airRoger/${id}`)
+useEffect(()=>{axios.get(`http://localhost:8000/api/airRoger/${id}`, {withCredentials:true})
     .then((res)=>{console.log(res.data)
     setOneInput(res.data)
     setOwners(res.data)

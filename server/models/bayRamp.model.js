@@ -11,7 +11,7 @@ const BayRamp = new mongoose.Schema(
             },
             area:{
                 type:String,
-                required:[true,"An area is required!"],
+                required:[true,"Area is required!"],
                 enum:[
                     "Bay Ramp",
                     
@@ -22,6 +22,7 @@ const BayRamp = new mongoose.Schema(
 
             tailNumber:{
                 type:String,
+                required:[true, "Tail Number required"]
     
             },
      
@@ -32,13 +33,14 @@ const BayRamp = new mongoose.Schema(
        
             fuelType:{
                 type:String,
-                // required:[true,"Must choose a type of fuel, Options:Avgas 100LL","Jet-A","94 unleaded "],
+                required:[true,"Fuel Type Required"],
                 enum:["Avgas 100LL","Jet-A","94 unleaded",]
     
             },
         
             fuelOrder:{
                 type:String,
+                required:[true,"Fuel Order Required"]
     
             },
        
@@ -55,6 +57,15 @@ const BayRamp = new mongoose.Schema(
             boxArt:{
                 type:String
             },
+            user_id:{
+                type:mongoose.Schema.Types.ObjectId, 
+                ref: "UserSchema"
+            },
+            owners:[{
+                type:mongoose.Schema.Types.ObjectId,
+                ref: "owners"
+            }]
+            
         
             
      

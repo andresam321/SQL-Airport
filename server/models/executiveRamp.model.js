@@ -22,6 +22,7 @@ const ExecutiveRamp = new mongoose.Schema(
 
             tailNumber:{
                 type:String,
+                required:[true,"Tail Number Required"]
     
             },
      
@@ -33,7 +34,7 @@ const ExecutiveRamp = new mongoose.Schema(
        
             fuelType:{
                 type:String,
-                // required:[true,"Must choose a type of fuel, Options:Avgas 100LL","Jet-A","94 unleaded "],
+                required:[true,"Fuel Type Required"],
                 enum:["Avgas 100LL","Jet-A","94 unleaded",]
     
             },
@@ -57,7 +58,7 @@ const ExecutiveRamp = new mongoose.Schema(
             },
             timeArrived:{
                 type:String,
-                required:[true,"A Date is required!"],
+                required:[true,"A Time is required!"],
     
             },
             rampFeeCost:{

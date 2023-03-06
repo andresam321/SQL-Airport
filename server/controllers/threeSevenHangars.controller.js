@@ -12,8 +12,8 @@ getSql:(req,res)=>{
 createSql:(req,res)=>{
     sql.create(req.body)
     .then((createThreeSevenHangars)=>{res.status(201).json(createThreeSevenHangars)})
-    .catch((err)=>{console.log("error in creating sql inputs", err)
-    res.status(400).json({message:"Something went wrong in creating all SQL inputs"})
+    .catch((err)=>{console.log(err)
+    res.status(400).json(err)
  })
 },
 getSqlById:(req,res)=>{
