@@ -75,7 +75,7 @@ useEffect(()=>{axios.get("http://localhost:8000/api/currentUser", {withCredentia
   return (
   <div>
     <div>
-    { user ? (
+    {/* { user ? ( */}
       <div className="header"> 
       {/* { user ? ( */}
           <Link to={'/accountList'} className="homeBtn">Home</Link> 
@@ -87,14 +87,14 @@ useEffect(()=>{axios.get("http://localhost:8000/api/currentUser", {withCredentia
           {/* <button onClick={handleLogout}>Logout</button> */}
         </div>
     </div>
-    ):(
+    {/* ):(
           <div>
               <NavLink to="/">Login</NavLink>
                     <span> | </span>
               <NavLink to="/">Register</NavLink>
           </div> 
     
-    )}
+    )} */}
     </div>
     
     <div>

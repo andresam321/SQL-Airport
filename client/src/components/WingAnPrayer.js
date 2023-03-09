@@ -22,23 +22,23 @@ const [user, setUser] = useState()
     
     }, [])
   
-    useEffect(()=>{axios.get("http://localhost:8000/api/currentUser", {withCredentials:true})
-    .then((res)=>{
-      console.log(res)
-      console.log(res.data)
-      setUser(res.data)
-    })
-      .catch((err)=>console.log(err))
+    // useEffect(()=>{axios.get("http://localhost:8000/api/currentUser", {withCredentials:true})
+    // .then((res)=>{
+    //   console.log(res)
+    //   console.log(res.data)
+    //   setUser(res.data)
+    // })
+    //   .catch((err)=>console.log(err))
     
     
-    }, [isLoggedIn])
+    // }, [isLoggedIn])
 
 
 
   return (
     <div>
     <div>
-    { user ? (
+    {/* { user ? ( */}
 <div className="header">
     <Link to={'/accountList'} className="homeBtn">Home</Link> 
     <Link to={'/accountList/towerLocations'} className="active">Tower Side Parking</Link> 
@@ -50,18 +50,18 @@ const [user, setUser] = useState()
     
   </div>
 </div>
-):(
+{/* ):(
           <div>
               <NavLink to="/">Login</NavLink>
                     <span> | </span>
               <NavLink to="/">Register</NavLink>
           </div> 
     
-    )}
+    )} */}
     </div>
     
     <div>
-    { user ? (
+    {/* { user ? ( */}
 <table className="table">
   <thead>
     <tr>
@@ -103,13 +103,13 @@ const [user, setUser] = useState()
 
   </tbody>
 </table>
- ):(
+ {/* ):(
         <div>
               <NavLink to="/">Login</NavLink>
                     <span> | </span>
               <NavLink to="/">Register</NavLink>
         </div> 
-      )}
+      )} */}
     </div>
 
     </div>

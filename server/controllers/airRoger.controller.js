@@ -1,6 +1,6 @@
 const sql = require("../models/airRoger.model")
 const jwt = require("jsonwebtoken");
-const Owner = require("../models/owners.model")
+const Owner = require("../models/waapOwners.model")
 
 module.exports ={
 getSql:(req,res)=>{

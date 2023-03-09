@@ -1,12 +1,20 @@
 const mongoose = require("mongoose")
 
-const OwnersInfo = new mongoose.Schema(
+const TshdadeOwners = new mongoose.Schema(
     {
-        ownersName:{
+        fullName:{
             type:String,
-            required:[true,""]
+            required:[true,"name req"]
         },
-
+        email:{
+            type:String
+        },
+        information:{
+            type:String
+        },
+        phoneNumber:{
+            type:String
+        },
         tailNumber:{
             type:String,
             required:[true,""]
@@ -37,12 +45,18 @@ const OwnersInfo = new mongoose.Schema(
             type:String,
 
         },
-        airRoger: {
-            type:mongoose.Schema.Types.ObjectId,
-            ref: "airRoger"
-        }
+        airRoger_id:{
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "AirRoger",
+        },
+        user_id:{
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "UserSchema",
+        },
+
     }, {timestamps:true}
 )
 
-const ownersInfo = mongoose.model("OwnersInfo", OwnersInfo)
-module.exports = ownersInfo
+
+const tshdadeOwners = mongoose.model("tshdadeOwners", TshdadeOwners)
+module.exports = tshdadeOwners

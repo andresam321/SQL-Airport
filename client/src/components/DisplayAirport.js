@@ -35,16 +35,16 @@ const navigate = useNavigate();
     //   }
 
   
-    useEffect(()=>{axios.get("http://localhost:8000/api/currentUser", {withCredentials:true})
-    .then((res)=>{
-      console.log(res)
-      console.log(res.data)
-      setUser(res.data)
-    })
-      .catch((err)=>console.log(err))
+  //   useEffect(()=>{axios.get("http://localhost:8000/api/currentUser", {withCredentials:true})
+  //   .then((res)=>{
+  //     console.log(res)
+  //     console.log(res.data)
+  //     setUser(res.data)
+  //   })
+  //     .catch((err)=>console.log(err))
     
   
-  }, [isLoggedIn])
+  // }, [isLoggedIn])
 
 //   useEffect(()=>{axios.get(`https://aeroapi.flightaware.com/aeroapi/aircraft/N123GS/owner`,{
 //     headers: {Accept: "Accept: application/json; charset=UTF-8"},
@@ -66,11 +66,11 @@ const navigate = useNavigate();
     
 <div>
         <h1>SQL ACCOUNT LIST</h1>
-        <button onClick={handleLogout}>Logout</button>
-        {user ? (
+        {/* <button onClick={handleLogout}>Logout</button> */}
+        {/* {user ? ( */}
 
       <div className="displayFlex">
-          WELCOME{user.firstName}
+          {/* WELCOME{user.firstName} */}
           <div className="box1">
             <h1>
             <Link to="towerLocations">Tower side</Link>
@@ -88,11 +88,11 @@ const navigate = useNavigate();
                 <img src="san-carlos-airport-performance-impressions.jpeg" alt="tower"></img>
             </div>
           </div>
-          <button onClick={handleLogout}>Logout</button>
+          {/* <button onClick={handleLogout}>Logout</button> */}
           {/* ):( */}
       </div>
           
-      ):( 
+      {/* ):( 
             <div>
                 <NavLink to="/">Login</NavLink>
                 <span> | </span>
@@ -100,11 +100,11 @@ const navigate = useNavigate();
                 
                 
             </div> 
-        )}
-        <p>Owners Info</p>
+        )} */}
+        {/* <p>Owners Info</p>
             <div>
                 <NavLink to="/ownersInfo">Owners Info</NavLink>
-            </div> 
+            </div>  */}
             
             
   </div>

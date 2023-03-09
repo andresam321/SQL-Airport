@@ -11,9 +11,9 @@ const DisplayWingAnPrayer = ({isLoggedIn, setIsLoggedIn}) => {
 
 
 
-    const {fullName, setFullName} = useState([])
-    const {email, setEmail} = useState([])
-    const {information, setInformation} = useState([])
+    const [fullName, setFullName] = useState("")
+    const [email, setEmail] = useState("")
+    const [information, setInformation] = useState("")
     const [allOwnersInfo, setAllOwnersInfo ] = useState([])
     const [user, setUser] = useState()
         
@@ -69,7 +69,7 @@ const DisplayWingAnPrayer = ({isLoggedIn, setIsLoggedIn}) => {
         });
     }
     
-    useEffect(()=>{axios.get(`http://localhost:8000/api/owner/${id}`, {withCredentials:true})
+    useEffect(()=>{axios.get(`http://localhost:8000/api/owners`, {withCredentials:true})
         .then((res)=>{console.log(res.data)
         // setFullName(res.data)
         // setEmail(res.data)
@@ -97,7 +97,7 @@ const DisplayWingAnPrayer = ({isLoggedIn, setIsLoggedIn}) => {
     
     const submitHandler = (e) =>{
         e.preventDefault()
-        axios.post(`http://localhost:8000/api/owner/${id}`, {
+        axios.post(`http://localhost:8000/api/newOwner`, {
             fullName,
             email,
             information,
@@ -110,23 +110,23 @@ const DisplayWingAnPrayer = ({isLoggedIn, setIsLoggedIn}) => {
         
     }
 
-    useEffect(()=>{axios.get("http://localhost:8000/api/currentUser", {withCredentials:true})
-    .then((res)=>{
-      console.log(res)
-      console.log(res.data)
-      setUser(res.data)
-    })
-      .catch((err)=>console.log(err))
+    // useEffect(()=>{axios.get("http://localhost:8000/api/currentUser", {withCredentials:true})
+    // .then((res)=>{
+    //   console.log(res)
+    //   console.log(res.data)
+    //   setUser(res.data)
+    // })
+    //   .catch((err)=>console.log(err))
     
     
-    }, [isLoggedIn])
+    // }, [isLoggedIn])
 
 
 
 
   return (
     <div>
-{ user ? (
+{/* { user ? ( */}
 <table className='table'>
             <thead>
                 <tr>
@@ -155,17 +155,17 @@ const DisplayWingAnPrayer = ({isLoggedIn, setIsLoggedIn}) => {
                     </tr>
                 </tbody>
         </table>
-        ):(
+        {/* ):(
         <div>
           <NavLink to="/">Login</NavLink>
                 <span> | </span>
           <NavLink to="/">Register</NavLink>
         </div>       
-    )}
+    )} */}
 
 
-    {user ? (
-<div className='display-flex3'>
+    {/* {user ? ( */}
+{/* <div className='display-flex3'>
    <form onSubmit={submitHandler}>
         <div className="form-group row">
             <label>Full Name</label>
@@ -184,54 +184,61 @@ const DisplayWingAnPrayer = ({isLoggedIn, setIsLoggedIn}) => {
             <input type="submit" value="Add" />
         </div>
     </form>
-</div>
-):(
+    
+</div> */}
+<Link to={'/waapOwnerCreate'} className="homeBtn">Add an Owner</Link>
+{/* ):(
         <div>
           <NavLink to="/">Login</NavLink>
                 <span> | </span>
           <NavLink to="/">Register</NavLink>
         </div>       
-    )}
+    )} */}
 
-    {user ? (
-    <table className='table'>
-            <thead>
-                <tr>
-                <th scope="col">Full Name</th>
-                <th scope="col">Email</th>
-                <th scope="col">Information</th>
-                
-                </tr>
-            </thead>
-            <tbody>
-            {/* {allOwnersInfo.map((info, index)=>{  
-              return ( */}
-            {/* <tr key={`info`.airRoger_id}> */}
-             <tr>
-                <td>{allOwnersInfo.fullName}</td>
-                <td>{allOwnersInfo.email}</td>
-                <td>{allOwnersInfo.information}</td>
-            </tr>
-            {/* </tr>
+    {/* {user ? ( */}
+            {allOwnersInfo.map((info, index)=>{  
+              return ( 
+<div key={info._id}> 
+       
+        <div className='owner-flex'>
+            <label className='bold'>Full Name: </label>
+                <div className='innerFlex'>
+                <label>{info.fullName}</label>
+            {/* <input type="text" value={owner.fullName} className="form-control" name="fullName"/> */}
+                </div>
+        </div>
+        <div className='owner1-flex'>
+            <label className='bold'>Email:</label>
+            <div className='innerFlex'>
+                <label>{info.email}</label>
+            {/* <input type="text" value={owner.email} className="form-control" name="email"/> */}
+            </div>
+        </div>
+        <div className='owner2-flex'>
+            <label className='bold'>Information:</label>
+            <div className='innerFlex'>
+                <textarea>{info.information}</textarea>
+            {/* <input type="text" value={owner.email} className="form-control" name="email"/> */}
+            </div>     
+        </div>
+        
+</div>
+    
 
             )}
 
             )
             }
-     */}
- 
-            
-  
-</tbody>
-  </table>
-  ):(
+     
+
+  {/* ):(
         <div>
-          <NavLink to="/">Login</NavLink>
+           <NavLink to="/">Login</NavLink>
                 <span> | </span>
-          <NavLink to="/">Register</NavLink>
+          <NavLink to="/">Register</NavLink> 
         </div>       
     )}
-  
+   */}
     </div>
   )
 }

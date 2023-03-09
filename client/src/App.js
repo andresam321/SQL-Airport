@@ -76,6 +76,7 @@ import LoginRegister from "./views/LoginRegister"
 import { useState } from 'react';
 import OwnersInfo from './components/OwnersInfo';
 import Root from './components/route'
+import AddWaapOwner from './components/AddWaapOwner';
 
 
 
@@ -130,6 +131,7 @@ function App() {
       <Route path="/skywayHoldingCreate" element={<CreateSkywayHolding/>}/>
       <Route path="/hillerAviationCreate" element={<CreateHillerAviation/>}/>
       <Route path="/northwestOverrunCreate" element={<CreateNorthwestOverrun/>}/>
+      <Route path="/waapOwnerCreate" element={<AddWaapOwner/>}/>
 
       <Route path="/airRogerPlane/:id" element={<DisplayAirRoger/>}/>
       <Route path="/tFplane/:id" element={<DisplayTfHangar/>}/>

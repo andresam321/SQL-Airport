@@ -15,16 +15,16 @@ const DisplayLocations = ({isLoggedIn, setIsloggedIn}) => {
 const [user, setUser] = useState(null)
 const navigate = useNavigate();
 
-  useEffect(()=>{axios.get("http://localhost:8000/api/currentUser", {withCredentials:true})
-  .then((res)=>{
-    console.log(res)
-    console.log(res.data)
-    setUser(res.data)
-  })
-    .catch((err)=>{console.log(err)
-  })
+//   useEffect(()=>{axios.get("http://localhost:8000/api/currentUser", {withCredentials:true})
+//   .then((res)=>{
+//     console.log(res)
+//     console.log(res.data)
+//     setUser(res.data)
+//   })
+//     .catch((err)=>{console.log(err)
+//   })
 
-}, [isLoggedIn])
+// }, [isLoggedIn])
 
 
 const handleLogout = () =>{
@@ -47,7 +47,7 @@ const handleLogout = () =>{
     <div>
       <div>
         
-      {user ? (
+      {/* {user ? ( */}
       <div>
             <div className='display-Header'>
               <Link to={'/accountList'} className="homeBtn">Home</Link> 
@@ -88,9 +88,9 @@ const handleLogout = () =>{
             </div>
           </div>
     </div>
-      ):(
+      {/* ):(
         <NavLink to="/">Login</NavLink>
-      )}
+      )} */}
   </div>
 </div>
   )

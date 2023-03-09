@@ -3,7 +3,7 @@ const Role = require("../models/user.model")
 const { authenticate, authRole } = require('../config/jwt.config');
 
 module.exports = (app) =>{
-    app.get("/api/airRogers",authenticate, sqlController.getSql)
+    app.get("/api/airRogers", sqlController.getSql)
     // app.get("/api/airRogers/owners", sqlController.getOwnerByPlaneId)
     app.post("/api/airRoger",authenticate, sqlController.createSql)
     app.get("/api/airRoger/:id",authenticate, sqlController.getSqlById)
